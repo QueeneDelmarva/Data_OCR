@@ -1,0 +1,39 @@
+{% include "header.html" %}
+
+{% block body %}
+
+<h2>View Database</h2>
+
+<!-- Search form -->
+<form method="GET" action="{{ url_for('database') }}">
+  <div class="input-group mb-3">
+    <input type="text" name="q" class="form-control" placeholder="Search...">
+    <button class="btn btn-outline-primary" type="submit">Search</button>
+  </div>
+</form>
+
+<!-- Table of OCR data -->
+<table class="table">
+  <thead>
+    <tr>
+      <th scope="col">ID</th>
+      <th scope="col">Text</th>
+      <th scope="col">Image</th>
+    </tr>
+  </thead>
+  <tbody>
+    {% for ocr_data in ocr_data_list %}
+    <tr>
+      <td>{{ ocr_data.id }}</td>
+      <td>{{ ocr_data.text }}</td>
+      <td><img src="{{ url_for('static', filename=ocr_data.image) }}" alt="{{ ocr_data.id }}" width="200"></td>
+    </tr>
+    {% endfor %}
+  </tbody>
+</table>
+
+  
+
+{% endblock body %}
+
+{% include "footer.html" %}

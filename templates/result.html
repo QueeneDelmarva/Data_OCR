@@ -1,0 +1,37 @@
+{% include "header.html" %}
+
+{% block body %}
+    <div class="container">
+        <br>
+        <br>
+        <h1>Results</h1>
+        <hr>
+
+        <h2>Information</h2>
+        <p>Words: {{ words }}</p>
+        <p>Scan time: {{ time }} seconds</p>
+        <hr>
+
+        <h2>Extracted text</h2>
+        <p>{{ text }}</p>
+
+        <hr>
+        <h2>View in Database Form</h2>
+        <table>
+            <tr>
+                <th>Product Code</th>
+                <th>Product Name</th>
+                <th>Price</th>
+            </tr>
+            {% for index in dataset  %}
+            <tr>
+                {% for data in index %}
+                <td>{{data}}</td>
+                {% endfor %}
+            </tr>
+            {% endfor %}
+        </table>
+    </div>
+{% endblock body %}
+
+{% include "footer.html" %}

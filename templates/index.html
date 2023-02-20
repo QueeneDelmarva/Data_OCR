@@ -1,0 +1,50 @@
+{% include "header.html" %}
+
+{% block body %}
+
+    <div class="container">
+        <h1 class="text-center" style="font-size: 10vh">ACAM<span style="font-size: 3vh;"></span></h1>
+        <h2 class="text-center " style="font-size: 5vh">Image to Text</h2>
+        <hr>
+
+        <h2>Description:</h2>
+        <h4>Extract text from images and view them in database</h4>
+
+        <hr>
+        <br><br>
+        <h2>Select Image</h2>
+
+        <div class="text-center">
+            <form action="scanner" method=post enctype=multipart/form-data>
+                <div class="input-group">
+                    <div class="custom-file">
+                        <input type="file" name="file" class="custom-file-input" id="inputGroupFile01"
+                               aria-describedby="inputGroupFileAddon01" accept="image/*">
+                        <label class="custom-file-label" for="inputGroupFile01">Choose file</label>
+                    </div>
+                </div>
+
+                <br>
+                <button type="submit" class="btn btn-raised btn-primary">Scan Image</button>
+            </form>
+        </div>
+        
+
+    
+
+<!--
+    <form action="scanner" method=post enctype=multipart/form-data>
+        <input type="file" name="file">
+        <input type="submit" value="Scan file">
+    </form>
+    <hr>
+    "/Users/queene/Library/Python/3.8/lib/python/site-packages/pytesseract/pytesseract.py",
+-->
+
+{% if scanned %}
+    <hr>
+    <h1>Scanned results</h1>
+{% endif %}
+{% endblock body %}
+
+{% include "footer.html" %}
